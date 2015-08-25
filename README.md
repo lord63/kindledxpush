@@ -8,8 +8,8 @@ This project was created by [@blahgeek][5], now maintained by [@lord63][6].
 ## Intro
 
 As we all know, we can use Amazon's free 3G network to deliver our docs, but we need
-to manually click the deliver buttom in the browser. This script is born to rescue
-us from this boring thing. Config this script, add it to the `crontab` and you'are done.
+to manually click the deliver button in the browser. This script is born to rescue
+us from this boring thing. Config this script, add it to the `crontab` and you're done.
 All your docs will be sent to your kindle automatically.
 
 
@@ -18,7 +18,7 @@ All your docs will be sent to your kindle automatically.
 * Python 2.7
 * Requests lib
 * BeautifulSoup lib
-* Linux platform(I haven't test it on windows)
+* Linux platform (I haven't test it on windows)
 
 ## Install
 
@@ -40,7 +40,7 @@ All your docs will be sent to your kindle automatically.
       -h, --help            output the help menu
       -V, --version         output the version number
       -c, --count [count]   the count of the docs to deliver
-      -n, --number [number] show how may logs
+      -n, --number [number] show how many logs
 
     Commands:
       read                  read the log file
@@ -52,7 +52,7 @@ first, touch a new file named `kindlepush_config.json` under `/usr/local/bin`, i
         "email": "xxxxxx",              # your email
         "password": "xxxxxx",           # your amazon's password
         "directory": "/path/to/save/",  # save log file and database, end with '/'
-        "count": 15,                    # check how many docs evert time that whether those have been deliverred before, default 15 is one page a time.
+        "count": 15,                    # check how many docs every time that whether those have been deliverred before, default 15 is one page a time.
         "number": 4                     # the default count of log messages when you read from log file
     }
 
