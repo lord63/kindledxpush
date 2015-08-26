@@ -36,7 +36,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'kindlepush=kindlepush.kindlepush:main',
+            'kindlepush=kindlepush.kindle:main',
         ],
     },
 )
