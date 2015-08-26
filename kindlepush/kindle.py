@@ -64,7 +64,8 @@ def login(config):
                  'eturn_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fyourstore%2Fhom'
                  'e%3Fie%3DUTF8%26ref_%3Dgno_signin')
     login_post_url = 'https://www.amazon.com/ap/signin'
-    login_page = BeautifulSoup(GLOBAL_SESSION.get(login_url).text)
+    login_page = BeautifulSoup(GLOBAL_SESSION.get(login_url).text,
+                               "html.parser")
     data = get_hidden_form_data(login_page)
     data.update({'email': config['email'], 'password': config['password']})
     GLOBAL_SESSION.post(login_post_url, data)
