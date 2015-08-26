@@ -202,7 +202,7 @@ def main():
     if command.count:
         config['count'] = command.count
 
-    if not 'read' and 'pending' in sys.argv:
+    if ('read' not in sys.argv) and ('pending' not in sys.argv):
         try:
             login(config)
             deliver_all(get_contents(config), database)
@@ -210,6 +210,3 @@ def main():
             print 'KeyError, check your config file please.'
         except requests.exceptions.ConnectionError:
             print 'Check your network please.'
-
-if __name__ == '__main__':
-    main()
