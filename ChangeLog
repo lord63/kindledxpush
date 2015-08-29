@@ -1,3 +1,7 @@
+2015.08.29 v0.3.3
+- add a function to get csrfToken
+- this version should fix #10, #11
+
 2015.08.26
 - v0.3.2 released
 - fix #10
