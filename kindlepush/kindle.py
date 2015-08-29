@@ -107,8 +107,10 @@ def get_device_id():
 def get_pending_deliveries():
     """get pending deliveries"""
     request = GLOBAL_SESSION.post(
-        'https://www.amazon.com/mn/dcw/myx/ajax-activity',
-        data={'data': '{"param": {"GetTodo": {}}}'})
+        'https://www.amazon.com/mn/dcw/myx/ajax-activity/ref=myx_ajax',
+        data={'csrfToken': get_csrf_token(),
+              'data': '{"param": {"GetTodo": {}}}'}
+    )
     titles = [unescape(item['title']) for item in
               request.json()['GetTodo']['todoItems']]
     return titles
