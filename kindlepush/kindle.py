@@ -84,11 +84,22 @@ def get_contents(config):
         ]
 
 
+def get_csrf_token():
+    """Get crsf token which will be used in POST."""
+    request = GLOBAL_SESSION.post("https://www.amazon.com/mn/dcw/myx.html")
+    page = BeautifulSoup(request.text, "html.parser")
+    script_tag = page.find_all('script')[-6]
+    csrf_token = script_tag.text.strip().split(';')[0][17:-1]
+    return csrf_token
+
+
 def get_device_id():
     """automatically get the device id used when sending your docs"""
     request = GLOBAL_SESSION.post(
-        'https://www.amazon.com/mn/dcw/myx/ajax-activity',
-        data={'data': '{"param": {"GetDevices": {}}}'})
+        'https://www.amazon.com/mn/dcw/myx/ajax-activity/ref=myx_ajax',
+        data={'csrfToken': get_csrf_token(),
+              'data': '{"param": {"GetDevices": {}}}'}
+    )
     device_id = request.json()['GetDevices']['devices'][0]['deviceAccountId']
     return device_id
 
